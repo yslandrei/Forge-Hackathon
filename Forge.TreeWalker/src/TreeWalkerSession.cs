@@ -143,6 +143,12 @@ namespace Microsoft.Forge.TreeWalker
         private string currentNodeSkipActionContext;
 
         /// <summary>
+        /// The factory used to create instances of actions.
+        /// Defaults to DefaultForgeActionFactory (no dependency injection), but can be configured to instantiate dependency injected actions via extensions to support different DI libraries.
+        /// </summary>
+        private readonly IForgeActionFactory forgeActionFactory;
+
+        /// <summary>
         /// Instantiates a tree walker session with the required parameters.
         /// </summary>
         /// <param name="parameters">The parameters object contains the required and optional properties used by the TreeWalkerSession.</param>
@@ -174,6 +180,19 @@ namespace Microsoft.Forge.TreeWalker
             }
 
             this.Status = "Initialized";
+        }
+
+        /// <summary>
+        /// Instantiates a tree walker session with the required parameters and a custom action factory.
+        /// This overload allows dependency injection for actions by providing a DI library specific IForgeActionFactory implementation.
+        /// </summary>
+        /// <param name="parameters">The parameters object contains the required and optional properties used by the TreeWalkerSession.</param>
+        /// <param name="forgeActionFactory">The specific DI library IForgeActionFactory implementation used for instantiating actions.</param>
+        public TreeWalkerSession(TreeWalkerParameters parameters, IForgeActionFactory forgeActionFactory)
+            : this(parameters)
+        {
+            // TODO: Potentially have a factory pattern to construct asynchronously.
+            this.forgeActionFactory = forgeActionFactory ?? throw new ArgumentNullException(nameof(forgeActionFactory));
         }
 
         /// <summary>
@@ -910,20 +929,19 @@ namespace Microsoft.Forge.TreeWalker
                 this.Parameters.RootSessionId
             );
 
-            // Instantiate the BaseAction-derived ActionType class and invoke the RunAction method on it.
-            object actionObject;
+            // Instantiate the BaseAction-derived ActionType class and run the RunAction method.
+            BaseAction actionObject;
             if (actionDefinition.ActionType == typeof(SubroutineAction))
             {
                 // Special initializer is used for the native SubroutineAction.
-                actionObject = Activator.CreateInstance(actionDefinition.ActionType, this.Parameters);
+                actionObject = forgeActionFactory.CreateInstance(actionDefinition.ActionType, this.Parameters);
             }
             else
             {
-                actionObject = Activator.CreateInstance(actionDefinition.ActionType);
+                actionObject = forgeActionFactory.CreateInstance(actionDefinition.ActionType);
             }
 
-            MethodInfo method = typeof(BaseAction).GetMethod("RunAction");
-            Task<ActionResponse> runActionTask = (Task<ActionResponse>) method.Invoke(actionObject, new object[] { actionContext });
+            Task<ActionResponse> runActionTask = actionObject.RunAction(actionContext);
 
             // Await for the first completed task between our runActionTask and the timeout task.
             // This allows us to continue without awaiting the runActionTask upon timeout.
