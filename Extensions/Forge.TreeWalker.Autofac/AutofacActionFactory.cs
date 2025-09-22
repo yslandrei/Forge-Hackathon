@@ -14,12 +14,12 @@ namespace Microsoft.Forge.TreeWalker.Autofac
 
         public BaseAction CreateInstance(Type type)
         {
-            return _container.Resolve(type) as BaseAction;
+            return (BaseAction) _container.Resolve(type);
         }
 
         public BaseAction CreateInstance(Type type, TreeWalkerParameters parameters)
         {
-            return _container.Resolve(type, new NamedParameter("parameters", parameters)) as BaseAction;
+            return (BaseAction) _container.Resolve(type, new NamedParameter("parameters", parameters));
         }
     }
 }
