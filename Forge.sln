@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.UnitTests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.UnityExtensions", "Extensions\Forge.TreeWalker.UnityExtensions\Forge.TreeWalker.UnityExtensions.csproj", "{7CB2768C-F14F-4788-84E6-6790B8DC40A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.Microsoft.DependencyInjection", "Extensions\Forge.TreeWalker.Microsoft.DependencyInjection\Forge.TreeWalker.Microsoft.DependencyInjection.csproj", "{2D70AA89-10C2-4659-8964-27273ADDCAB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7CB2768C-F14F-4788-84E6-6790B8DC40A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CB2768C-F14F-4788-84E6-6790B8DC40A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CB2768C-F14F-4788-84E6-6790B8DC40A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D70AA89-10C2-4659-8964-27273ADDCAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D70AA89-10C2-4659-8964-27273ADDCAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D70AA89-10C2-4659-8964-27273ADDCAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D70AA89-10C2-4659-8964-27273ADDCAB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
