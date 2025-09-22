@@ -5,7 +5,7 @@ namespace Forge.TreeWalker.Microsoft.DependencyInjection;
 
 public class NativeDITreeWalkerSessionFactory : ITreeWalkerSessionFactory
 {
-    private IServiceProvider _serviceProvider;
+    private readonly IServiceProvider _serviceProvider;
     public NativeDITreeWalkerSessionFactory(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
