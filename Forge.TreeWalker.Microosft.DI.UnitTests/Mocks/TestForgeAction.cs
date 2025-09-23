@@ -1,4 +1,13 @@
-﻿using Microsoft.Forge.Attributes;
+﻿//-----------------------------------------------------------------------
+// <copyright file="TestForgeAction.cs" company="Microsoft">
+//     Copyright (c) Microsoft Corporation.  All rights reserved.
+// </copyright>
+// <summary>
+//     ForgeAction for testing purposes
+// </summary>
+//-----------------------------------------------------------------------
+
+using Microsoft.Forge.Attributes;
 using Microsoft.Forge.TreeWalker;
 
 namespace Forge.TreeWalker.Microosft.DI.UnitTests.Mocks
