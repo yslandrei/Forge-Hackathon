@@ -23,7 +23,9 @@ namespace Microsoft.Forge.TreeWalker.Autofac
 
         public static ContainerBuilder RegisterForge(this ContainerBuilder builder)
         {
-            builder.RegisterType<SubroutineAction>().AsSelf();
+            builder.RegisterType<SubroutineAction>()
+                .AsSelf()
+                .Keyed<BaseAction>(typeof(SubroutineAction));
 
             builder.RegisterType<AutofacActionFactory>()
                    .As<IForgeActionFactory>()
