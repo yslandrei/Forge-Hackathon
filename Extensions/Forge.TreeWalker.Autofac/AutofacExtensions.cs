@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using System.Linq;
 using System.Reflection;
 
 namespace Microsoft.Forge.TreeWalker.Autofac
@@ -7,10 +8,15 @@ namespace Microsoft.Forge.TreeWalker.Autofac
     {
         public static ContainerBuilder RegisterForgeActionsFromAssembly(this ContainerBuilder builder, Assembly assembly)
         {
-            builder.RegisterAssemblyTypes(assembly)
-                   .Where(t => t.GetCustomAttributes(typeof(Attributes.ForgeActionAttribute), true).Length > 0)
-                   .AsSelf()
-                   .InstancePerDependency();
+            var forgeActionTypes = assembly.GetTypes().Where(t => t.GetCustomAttributes(typeof(Attributes.ForgeActionAttribute), true).Length > 0);
+
+            foreach (var t in forgeActionTypes)
+            {
+                builder.RegisterType(t)
+                       .AsSelf()
+                       .Keyed<BaseAction>(t)
+                       .InstancePerDependency();
+            }
 
             return builder;
         }
