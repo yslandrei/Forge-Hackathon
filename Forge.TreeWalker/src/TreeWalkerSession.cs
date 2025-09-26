@@ -179,6 +179,8 @@ namespace Microsoft.Forge.TreeWalker
                 this.Parameters.RootSessionId = parameters.SessionId;
             }
 
+            this.forgeActionFactory = new DefaultForgeActionFactory();
+
             this.Status = "Initialized";
         }
 
