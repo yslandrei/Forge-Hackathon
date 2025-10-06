@@ -14,13 +14,21 @@ namespace Forge.TreeWalker.Microosft.DI.UnitTests.Mocks
 {
 
     [ForgeAction(typeof(TestForgeActionInput))]
-    internal class TestForgeAction : BaseAction
+    public class TestForgeAction : BaseAction
     {
+        private readonly IMockedTestService _testService;
+
+        public TestForgeAction(IMockedTestService testService)
+        {
+            _testService = testService;
+        }
         public override Task<ActionResponse> RunAction(ActionContext actionContext)
         {
+            _testService.Execute();
             return Task.FromResult(new ActionResponse());
         }
     }
 
-    internal class TestForgeActionInput { }
+    public class TestForgeActionInput { }
+
 }

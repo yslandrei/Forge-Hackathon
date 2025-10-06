@@ -1,0 +1,30 @@
+{
+  "Tree": {
+    "Root": {
+      "Type": "Action",
+      "Actions": {
+        "DI_ExampleForgeAction": {
+          "Action": "ExampleForgeAction",
+          "Input": {
+            "SomeString": "Testing Input From Tree"
+          }
+        }
+      },
+      "ChildSelector": [
+        {
+          "ShouldSelect": "C#|Session.GetLastActionResponse().Status == \"Success\" && UserContext.ResourceType == \"Container\"",
+          "Child": "ActionSuccess"
+        },
+        {
+          "Child": "ActionFail"
+        }
+      ]
+    },
+    "ActionSuccess": {
+      "Type": "Leaf"
+    },
+    "ActionFail": {
+      "Type": "Leaf"
+    }
+  }
+}

@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.UnityExten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.Microsoft.DependencyInjection", "Extensions\Forge.TreeWalker.Microsoft.DependencyInjection\Forge.TreeWalker.Microsoft.DependencyInjection.csproj", "{2D70AA89-10C2-4659-8964-27273ADDCAB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.Microosft.DI.UnitTests", "Forge.TreeWalker.Microosft.DI.UnitTests\Forge.TreeWalker.Microosft.DI.UnitTests.csproj", "{B63FA6BB-6744-4AD5-95AE-30968F84E091}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.TreeWalker.MicroosftDI.UnitTests", "Forge.TreeWalker.MicroosftDI.UnitTests\Forge.TreeWalker.MicroosftDI.UnitTests.csproj", "{B63FA6BB-6744-4AD5-95AE-30968F84E091}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forge.Examples.MicrosoftDI", "Forge.Examples.MicrosoftDI\Forge.Examples.MicrosoftDI.csproj", "{49488FBB-4E5E-4472-8B3A-2A26E8EA2E86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,16 @@ Global
 		{B63FA6BB-6744-4AD5-95AE-30968F84E091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B63FA6BB-6744-4AD5-95AE-30968F84E091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B63FA6BB-6744-4AD5-95AE-30968F84E091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49488FBB-4E5E-4472-8B3A-2A26E8EA2E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49488FBB-4E5E-4472-8B3A-2A26E8EA2E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49488FBB-4E5E-4472-8B3A-2A26E8EA2E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49488FBB-4E5E-4472-8B3A-2A26E8EA2E86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49488FBB-4E5E-4472-8B3A-2A26E8EA2E86} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8067EC1-B359-4193-8603-5E6524B2B3A1}

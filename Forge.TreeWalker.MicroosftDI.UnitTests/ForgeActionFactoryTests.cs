@@ -39,7 +39,7 @@ namespace Forge.TreeWalker.Microosft.DI.UnitTests
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.RegisterForgeActionsFromAssembly(Assembly.GetExecutingAssembly());
             serviceCollection.RegisterForge();
-
+            serviceCollection.AddTransient<IMockedTestService, MockedTestService>();
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             var factory = serviceProvider.GetRequiredService<IForgeActionFactory>();
